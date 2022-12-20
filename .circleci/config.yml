@@ -4,9 +4,10 @@ docker:
   authenticrate-docker:
     steps:
       - run:
+          
           name: Authenticate docker
-          username: $DOCKER_USER
-          password: $DOCKER_PASSWORD
+          command: |
+            docker login --username $DOCKER_USER --password $DOCKER_PASSWORD
   build-docker-image:
     steps:
       - run:
