@@ -11,7 +11,7 @@ docker:
     steps:
       - run:
           name: Create a dockerhub Repository
-          command: dockerhub create-repository --repository-name || true
+          command: dockerhub create-repository divyagovindaiah123 || true
   build-docker-image:
     steps:
       - run:
