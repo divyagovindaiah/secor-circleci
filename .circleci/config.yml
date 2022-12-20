@@ -26,7 +26,6 @@ jobs:
       image: ubuntu-2004:202201-02
     steps:
       - checkout
-      - setup-node
       - setup-docker-profile
       - authenticate-dokcer
       - create-dokcer-repo
@@ -41,7 +40,6 @@ jobs:
       - setup-docker-profile
       
 workflows:
-  main:
     jobs:
       - build-image:
           context: DockerCredentials
