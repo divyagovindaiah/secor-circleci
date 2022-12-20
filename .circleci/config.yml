@@ -26,11 +26,9 @@ jobs:
       image: ubuntu-2004:202201-02
     steps:
       - checkout
-      
-    
   deploy-job:
     docker:
-      - image: circleci/secor:1.0.0
+      image: circleci/secor:1.0.0
     steps:
       - checkout
       - install-docker
