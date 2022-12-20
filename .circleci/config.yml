@@ -1,6 +1,6 @@
 version: 2.1
 docker:
-  image: circleci/secor:1.0.0
+  image: secoresearch/apache-varnish:latest
 commands:  
   authenticrate-docker:
     steps:
