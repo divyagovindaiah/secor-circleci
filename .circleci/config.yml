@@ -28,7 +28,7 @@ jobs:
       - checkout
   deploy-job:
     docker:
-      image: circleci/secor:1.0.0
+      - image: circleci/secor:1.0.0
     steps:
       - checkout
       - install-docker
