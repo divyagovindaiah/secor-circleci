@@ -26,7 +26,6 @@ jobs:
       image: ubuntu-2004:202201-02
     steps:
       - checkout
-      - authenticate-dokcer
       - create-dokcer-repo
       - build-docker-image
     
