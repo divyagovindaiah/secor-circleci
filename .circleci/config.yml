@@ -7,11 +7,6 @@ docker:
           name: Authenticate docker
           username: $DOCKER_USER
           password: $DOCKER_PASSWORD
-  create-docker-repo:
-    steps:
-      - run:
-          name: Create a dockerhub Repository
-          command: dockerhub create-repository divyagovindaiah123 || true
   build-docker-image:
     steps:
       - run:
