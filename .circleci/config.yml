@@ -2,27 +2,27 @@ version: 2.1
 docker:
   image: secoresearch/apache-varnish:latest
 commands:  
-  authenticrate-docker:
+  Authenticate -docker:
     steps:
       - run:
           name: Authenticate docker
           command: |
-            docker login --username $DOCEKR_USER --password $DOCKER_PASSWORD
+            docker login --username $DOCKER_USER --password $DOCKER_PASSWORD
   build-docker-image:
     steps:
       - run:
           name: Build a Docker image and publish it to docker dockerhub Repo.
           command: |
             docker build -t secor:1.0.0 .
-            docker tag secor:1.0.0  $DOCEKR_USER/secor:1.0.0
-            docker push  $DOCEKR_USER/secor:1.0.0
+            docker tag secor:1.0.0  $DOCKER_USER/secor:1.0.0
+            docker push  $DOCKER_USER/secor:1.0.0
 jobs:
   build-image:
     machine:
       image: ubuntu-2004:202201-02
     steps:
       - checkout
-      - authenticrate-docker
+      - Authenticate 
       - build-docker-image
 workflows:
   version: 2
