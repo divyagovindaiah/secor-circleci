@@ -1,6 +1,7 @@
 version: 2.1
 docker:
   image: circleci/secor:1.0.0
+commands:  
   authenticrate-docker:
     steps:
       - run:
@@ -17,25 +18,22 @@ docker:
             docker push $DOCKER_USER
 jobs:
   build-image:
-    machine:
+    machine:- deploy-job:
+          requires:
+            - build-image
+          
       image: ubuntu-2004:202201-02
     steps:
       - checkout
       - authenticrate-docker
       - build-docker-image
-     
-  
-      
 workflows:
   version: 2
   build-project:
     jobs:
       - build-image:
           context: DockerCredentials
-      - deploy-job:
-          requires:
-            - build-image
-          
+      
 
 
 
