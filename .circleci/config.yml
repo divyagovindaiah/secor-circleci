@@ -31,7 +31,6 @@ jobs:
       - image: circleci/secor:1.0.0
     steps:
       - checkout
-      - setup-docker-profile
       
 workflows:
   version: 2
