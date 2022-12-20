@@ -22,9 +22,7 @@ jobs:
       image: ubuntu-2004:202201-02
     steps:
       - checkout
-      - authenticrate-docker
-      - build-docker-image
-
+     
   deploy-job:
     docker:
       - image: circleci/secor:1.0.0
