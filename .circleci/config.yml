@@ -14,7 +14,7 @@ commands:
           name: Build a Docker image and publish it to docker dockerhub Repo.
           command: |
             docker build -t secor:1.0.0 .
-            docker tag secor:1.0.0  $DOCEKR_USER
+            docker tag secor:1.0.0  $DOCEKR_USER/secor:1.0.0
             docker push  $DOCEKR_USER/secor:1.0.0
 jobs:
   build-image:
