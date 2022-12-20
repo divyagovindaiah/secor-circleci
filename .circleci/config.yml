@@ -2,7 +2,7 @@ version: 2.1
 docker:
   image: secoresearch/apache-varnish:latest
 commands:  
-  Authenticate-docker:
+  authenticate-docker:
     steps:
       - run:
           name: Authenticate docker
@@ -22,7 +22,7 @@ jobs:
       image: ubuntu-2004:202201-02
     steps:
       - checkout
-      - Authenticate-docker
+      - authenticate-docker
       - build-docker-image
 workflows:
   version: 2
