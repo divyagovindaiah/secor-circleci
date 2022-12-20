@@ -29,12 +29,12 @@ workflows:
   build-project:
     jobs:
       - build-image:
-      filters:
-        tags:
-          only: /.*/
-        branches:
-          ignore: /.*/
-      context: DockerCredentials
+          context: DockerCredentials
+          filters:
+           tags:
+            only: /.*/
+          branches:
+            ignore: /.*/
       
 
 
