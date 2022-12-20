@@ -1,18 +1,62 @@
 version: 2.1
-
+docker:
+  image: circleci/secor:1.0.0
+  authenticate-docker:
+    steps:
+      - run:
+          name: Authenticate docker
+          username: $DOCKER_USER
+          password: $DOCKER_PASSWORD
+  create-ecr-repo:
+    steps:
+      - run:
+          name: Create a dockerhub Repository
+          command: dockerhub create-repository --repository-name || true
+  build-docker-image:
+    steps:
+      - run:
+          name: Build a Docker image and publish it to docker dockerhub Repo.
+          command: |
+            docker build -t secor:1.0.0 .
+            docker tag secor:1.0.0 . $DOCKER_USER
+            docker push $DOCKER_USER
 jobs:
-  ubuntu:
+  build-image:
     machine:
-      image: ubuntu-2004:2022.10.1
-
+      image: ubuntu-2004:202201-02
     steps:
       - checkout
-      - run: echo "Do some thing"
+      - setup-node
+      - setup-docker-profile
+      - authenticate-dokcer
+      - create-dokcer-repo
+      - build-docker-image
+    
+  deploy-job:
+    docker:
+      - image: circleci/secor:1.0.0
+    steps:
+      - checkout
+      - install-docker
+      - setup-docker-profile
+      
+workflows:
+  main:
+    jobs:
+      - build-image:
+          context: DockerCredentials
+      - deploy-job:
+          requires:
+            - build-image
+          
+
+
+
+
+          
 
    
-workflows:
-  version: 2
-  build-project:
-    jobs:
-      - ubuntu
-      
+ 
+
+
+
