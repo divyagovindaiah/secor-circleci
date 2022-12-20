@@ -15,7 +15,7 @@ commands:
           command: |
             docker build -t secor:1.0.0 .
             docker tag secor:1.0.0  $DOCEKR_USER
-            docker push divyagovindaiah123/secor:1.0.0 $DOCEKR_USER
+            docker push secor:1.0.0 $DOCEKR_USER
 jobs:
   build-image:
     machine:
