@@ -40,6 +40,8 @@ jobs:
       - setup-docker-profile
       
 workflows:
+  version: 2
+  build-project:
     jobs:
       - build-image:
           context: DockerCredentials
