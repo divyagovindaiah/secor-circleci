@@ -1,0 +1,18 @@
+version: 2.1
+
+jobs:
+  ubuntu:
+    machine:
+      image: ubuntu-2004:2022.10.1
+
+    steps:
+      - checkout
+      - run: echo "Do some thing"
+
+   
+workflows:
+  version: 2
+  build-project:
+    jobs:
+      - ubuntu
+      
