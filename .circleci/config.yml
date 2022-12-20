@@ -18,10 +18,7 @@ commands:
             docker push $DOCKER_USER
 jobs:
   build-image:
-    machine:- deploy-job:
-          requires:
-            - build-image
-          
+    machine:
       image: ubuntu-2004:202201-02
     steps:
       - checkout
