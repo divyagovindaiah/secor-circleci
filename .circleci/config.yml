@@ -32,9 +32,9 @@ workflows:
           context: DockerCredentials
           filters:
            tags:
-            only: /.*/
-          branches:
-            ignore: /.*/
+             only: /.*/
+           branches:
+             ignore: /.*/
       
 
 
