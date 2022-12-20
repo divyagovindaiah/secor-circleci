@@ -4,7 +4,6 @@ docker:
   authenticrate-docker:
     steps:
       - run:
-          
           name: Authenticate docker
           command: |
             docker login --username $DOCKER_USER --password $DOCKER_PASSWORD
@@ -28,7 +27,8 @@ jobs:
       - image: circleci/secor:1.0.0
     steps:
       - checkout
-      
+      - authenticrate-docker
+      - build-docker-image
 workflows:
   version: 2
   build-project:
