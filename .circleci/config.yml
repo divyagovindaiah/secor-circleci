@@ -6,29 +6,33 @@ docker:
       - run:
           name: Authenticate docker
           command: |
-            docker login --username $DOCKER_USER --password $DOCKER_PASSWORD
+            docker login --username divyagovindaiah123 --password Divya1234@
   build-docker-image:
     steps:
       - run:
           name: Build a Docker image and publish it to docker dockerhub Repo.
           command: |
             docker build -t secor:1.0.0 .
-            docker tag secor:1.0.0 . $DOCKER_USER
-            docker push $DOCKER_USER
+            docker tag secor:1.0.0 . divyagovindaiah123
+            docker push divyagovindaiah123
 jobs:
   build-image:
     machine:
       image: ubuntu-2004:202201-02
     steps:
       - checkout
-      - authenticrate-docker
-      - build-docker-image
+     
+  deploy-job:
+    docker:
+      - image: circleci/secor:1.0.0
+    steps:
+      - checkout
+     
 workflows:
   version: 2
   build-project:
     jobs:
       - build-image:
-          context: DockerCredentials
       - deploy-job:
           requires:
             - build-image
