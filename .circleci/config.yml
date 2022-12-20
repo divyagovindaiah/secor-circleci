@@ -7,7 +7,7 @@ docker:
           name: Authenticate docker
           username: $DOCKER_USER
           password: $DOCKER_PASSWORD
-  create-ecr-repo:
+  create-docker-repo:
     steps:
       - run:
           name: Create a dockerhub Repository
@@ -26,7 +26,8 @@ jobs:
       image: ubuntu-2004:202201-02
     steps:
       - checkout
-      - create-dokcer-repo
+      - authenticate-dokcer
+      - create-dockerr-repo
       - build-docker-image
     
   deploy-job:
