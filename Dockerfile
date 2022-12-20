@@ -1,4 +1,4 @@
-FROM secor:1.0.0
+FROM openjdk:11.0.16
 
 RUN mkdir -p /home/stpl/secor-docker
 
