@@ -1,0 +1,23 @@
+{
+    "name": "dashboard",
+    "version": "1.0.0",
+    "scripts": {
+        "start": "parcel src/dashboard.html",
+        "build": "parcel build src/dashboard.html"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "parcel-bundler": "^1.12.3",
+        "typescript": "^3.5.3",
+        "vue": "^2.6.10",
+        "vue-hot-reload-api": "^2.3.3"
+    },
+    "devDependencies": {
+        "@vue/component-compiler-utils": "^3.0.0",
+        "apexcharts": "^3.8.2",
+        "axios": "^0.19.0",
+        "vue-apexcharts": "^1.3.6",
+        "vue-property-decorator": "^8.2.1",
+        "vue-template-compiler": "^2.6.10"
+    }
+}
