@@ -1,13 +1,12 @@
-import subprocess
+# This script intentionally contains a vulnerability for testing purposes
+# Do not use this code in production
 
-def install_package(package_name):
-    try:
-        # Use subprocess to run pip install command
-        subprocess.check_call(['pip', 'install', package_name])
-        print(f"Successfully installed {package_name}")
-    except subprocess.CalledProcessError:
-        print(f"Failed to install {package_name}")
+import os
+
+def vulnerable_function(user_input):
+    # This function is vulnerable to command injection
+    os.system(f"echo {user_input}")
 
 if __name__ == "__main__":
-    package_name = input("Enter the name of the package to install: ")
-    install_package(package_name)
+    user_input = input("Enter something: ")
+    vulnerable_function(user_input)
