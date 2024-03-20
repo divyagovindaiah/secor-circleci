@@ -1,12 +1,14 @@
-# This script intentionally contains a vulnerability for testing purposes
-# Do not use this code in production
+import os
+from flask import Flask, request
+app = Flask(__name__)
 
-import subprocess
+# curl -X GET "http://localhost:5000/tainted7/touch%20HELLO"
+@app.route("/tainted7/<something>")
+def test_sources_7(something):
+    
+    os.system(request.remote_addr) 
 
-def vulnerable_function(user_input):
-    # This function is vulnerable to shell injection
-    subprocess.run(["ls", user_input])
+    return "foo"
 
 if __name__ == "__main__":
-    user_input = input("Enter something: ")
-    vulnerable_function(user_input)
+	app.run(debug=True) 
