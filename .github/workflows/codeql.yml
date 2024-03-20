@@ -13,9 +13,9 @@ name: "CodeQL"
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ 'circlci-secor' ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ 'circlci-secor' ]
   schedule:
     - cron: '36 15 * * 6'
 
